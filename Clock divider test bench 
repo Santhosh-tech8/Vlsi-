@@ -1,0 +1,18 @@
+module clk_div_tb;
+  reg clk;
+  reg reset;
+  wire clk_d;
+  clk_div uut(.clk(clk),.reset(reset),.clk_d(clk_d));
+  initial begin 
+    clk =1;
+    forever #10 clk<=~clk;
+  end
+  initial begin
+    $monitor("time=%0tns|clk_d=%b",$time,clk_d);
+    reset=1;
+    #40;
+    reset=0;
+    #1000;
+  $finish;
+  end
+endmodule
