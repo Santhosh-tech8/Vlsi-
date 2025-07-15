@@ -1,0 +1,17 @@
+module clk_div(
+  input clk,
+  input reset,
+  output Clk_d
+        );
+  reg[28:0] div_cnt;
+  always@(posedge clk or posedge reset)begin
+  if(reset)
+    div_cnt <= 0;
+    clk_d <= 0;
+  end else if(div_cnt == 49_999_999)begin
+    div_cnt <= 0;
+    clk_d <= ~clk_d;
+  end else begin
+ div_cnt <= div_cnt+1;
+  end
+endmodule
