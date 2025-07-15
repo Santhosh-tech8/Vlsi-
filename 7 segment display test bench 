@@ -1,0 +1,14 @@
+module tb_seg7;
+  reg[3:0]data_in;
+  wire[7:0]display_out;
+  wire[7:0]AN;
+  seg7 uut(.data_in,.display_out(display_out),.AN(AN)
+           );
+  initial begin
+    $display("time\tdata_in\tdisplay_out\tAN");
+    $monitor("%ot\t%b\t%b|t%b",$time,data_in,display_out,AN);
+    data_in=4'b0000;
+    repeat(16)begin
+      #10 
+      end data_in=data_in+1
+endmodule
