@@ -1,0 +1,27 @@
+module seg7(input[3:0] data_in,output reg[7:0] display_out,output[7:0]AN
+           );
+  assign AN=8'b11111110;
+  always@(*)begin
+    case(data_in)
+      4'b0000:display_out=8'b00000011;
+      4'b0001:display_out=8'b10011111;
+      4'b0010:display_out=8'b00100101;
+      4'b0011:display_out=8'b00001101;
+      4'b0100:display_out=8'b10011001;
+      4'b0101:display_out=8'b01001001;
+      4'b0110:display_out=8'b01000001;
+      4'b0111:display_out=8'b00011111;
+      4'b1000:display_out=8'b00000001;
+      4'b1001:display_out=8'b00001001;
+      4'b1010:display_out=8'b00010001;
+      4'b1011:display_out=8'b11000001;
+      4'b1100:display_out=8'b01100011;
+      4'b1101:display_out=8'b10000101;
+      4'b1110:display_out=8'b01100001;
+      4'b1111:display_out=8'b01110001;
+      endcase
+        end
+        endmodule
+      
+   
+      
