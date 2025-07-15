@@ -26,7 +26,7 @@ module tb;
   end
   
   initial begin
-    $dumpfile("dump.vcd");
+    $dumpfile("D_flipflop.vcd");
     $dumpvars(1);
   end
 endmodule
