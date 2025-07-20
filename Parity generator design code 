@@ -1,0 +1,7 @@
+module parity_gen(input [3:0] d,
+                  output parity);
+    assign parity=^d;
+      endmodule
+      
+
+
