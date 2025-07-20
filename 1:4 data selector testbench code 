@@ -1,0 +1,18 @@
+module tb_data_selector_1of4;
+    reg [1:0] sel;
+    reg [3:0] d;
+    wire y;
+    integer i;
+
+    data_selector_1of4 uut (.sel(sel), .d(d), .y(y));
+
+    initial begin
+        $dumpfile("data_selector_1of4_tb.vcd");
+        $dumpvars(0, tb_data_selector_1of4);
+        d = 4'b1011;
+        for (i = 0; i < 4; i = i + 1) begin
+            sel = i; #10;
+        end
+        $finish;
+    end
+endmodule
