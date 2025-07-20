@@ -1,0 +1,35 @@
+module tb_mux4to1;
+
+    reg  [1:0] sel;
+    reg  [3:0] data_in;
+    wire mux_out;
+
+    mux4to1 uut (
+        .sel(sel),
+        .data_in(data_in),
+        .mux_out(mux_out)
+    );
+
+    initial begin
+      $dumpfile("Mux_tb.vcd");
+      $dumpvars();
+        data_in = 4'b1010;
+        sel = 2'b00; #10;
+        $display("sel=%b, mux_out=%b", sel, mux_out);
+
+        sel = 2'b01; #10;
+        $display("sel=%b, mux_out=%b", sel, mux_out);
+
+        sel = 2'b10; #10;
+        $display("sel=%b, mux_out=%b", sel, mux_out);
+
+        sel = 2'b11; #10;
+        $display("sel=%b, mux_out=%b", sel, mux_out);
+
+        
+        data_in = 4'b0111; sel = 2'b00; #10;
+        $display("sel=%b, mux_out=%b", sel, mux_out);
+
+        $finish;
+    end
+endmodule
