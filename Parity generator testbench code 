@@ -1,0 +1,15 @@
+module tb_parity_gen();
+    reg [3:0] d;
+    wire parity;
+
+    parity_gen uut (.d(d), .parity(parity));
+    initial begin
+      $dumpfile("tb_parity_gen");
+      $dumpvars();
+        d = 4'b0000; #10;
+        d = 4'b1111; #10;
+        d = 4'b1010; #10;
+        $finish;
+    end
+endmodule
+
