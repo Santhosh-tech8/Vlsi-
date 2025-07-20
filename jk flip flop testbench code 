@@ -1,0 +1,20 @@
+module tb_jkff();
+    reg clk, reset, j, k;
+    wire q;
+    jkff uut (.clk(clk), .reset(reset), .j(j), .k(k), .q(q));
+
+    initial begin
+        $dumpfile("jkff_tb.vcd");
+        $dumpvars(0, tb_jkff);
+    end
+
+    initial clk=0; always #5 clk=~clk;
+
+    initial begin
+        reset=1; j=0; k=0; #8;
+        reset=0; j=1; k=0; #10;
+        j=0; k=1; #10;
+        j=1; k=1; #10;
+        $finish;
+    end
+endmodule
