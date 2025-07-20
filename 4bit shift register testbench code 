@@ -1,0 +1,22 @@
+module tb_shift_reg();
+    reg clk, reset, d;
+    wire [3:0] q;
+    shift_reg uut (.clk(clk), .reset(reset), .d(d), .q(q));
+
+    initial begin
+        $dumpfile("shift_reg_tb.vcd");
+        $dumpvars(0, tb_shift_reg);
+    end
+
+    initial clk=0;
+    always #5 clk=~clk;
+
+    initial begin
+        reset=1; d=0; #10;
+        reset=0; d=1; #10;
+        d=0; #10;
+        d=1; #10;
+        d=1; #10;
+        $finish;
+    end
+endmodule
