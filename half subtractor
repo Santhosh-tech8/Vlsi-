@@ -5,7 +5,7 @@ module half_subtractor_tb;
   initial begin;
     $dumpfile("half_subtractor.vcd");
     $dumpvars;
-    $monitor("At time %0t: a=%b,b=%b,d=%b,bout=%b",$time, a,b,d,bout);
+    $monitor("At time %0t : a=%b,b=%b,d=%b,bout=%b",$time, a,b,d,bout);
     a=0;b=0;
     #10;
     a=0;b=1;
