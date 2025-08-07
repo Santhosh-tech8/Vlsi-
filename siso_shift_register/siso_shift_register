@@ -1,0 +1,11 @@
+module siso_shift_register(input clk, input rst, input data_in, output reg data_out);
+reg [3:0] reg_data;
+always @(posedge clk or posedge rst) begin
+  if (rst)
+    reg_data <= 4'b0;
+  else begin
+    reg_data <= {reg_data[2:0], data_in};
+    data_out <= reg_data[3];
+  end
+end
+endmodul
