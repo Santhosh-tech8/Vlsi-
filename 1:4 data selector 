@@ -1,8 +1,7 @@
 module data_selector_1to4(
     input [1:0] sel,
     input [3:0] d,
-    output reg y
-);
+    output reg y);
     always @(*) begin
         if      (sel == 2'b00) y = d[0];
         else if (sel == 2'b01) y = d[1];
